@@ -1,29 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using TMPro;
 
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class Demo1 : MonoBehaviour
 {
 
-    #region MyButton
-
-    public Button Btn_MyButton;
+    private TextMeshProUGUI txt_Variable;
 
     private void Awake()
     {
-        Btn_MyButton.onClick.AddListener(ButtonClick_MyButton);
+        txt_Variable = GameObject.Find("Txt_Variable").GetComponent<TextMeshProUGUI>();
+
+        if (PlayerPrefs.HasKey("Variable"))
+        {
+            txt_Variable.text = PlayerPrefs.GetString("Variable");
+        }
     }
 
-    public void ButtonClick_MyButton()
+    private void Start()
     {
-        Debug.Log("ButtonClick_MyButton");
+        if (!PlayerPrefs.HasKey("Variable"))
+        {
+            PlayerPrefs.SetString("Variable", "This is variable !!!");
+        }
     }
-
-    #endregion
-
-
 
 }
