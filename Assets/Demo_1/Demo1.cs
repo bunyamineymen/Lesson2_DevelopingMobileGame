@@ -23,6 +23,8 @@ public class Demo1 : MonoBehaviour
         if (!PlayerPrefs.HasKey("Variable"))
         {
             PlayerPrefs.SetString("Variable", "This is variable !!!");
+            PlayerPrefs.SetInt("Score", 9);
+            PlayerPrefs.SetFloat("percentage", 0.67f);
         }
     }
 
