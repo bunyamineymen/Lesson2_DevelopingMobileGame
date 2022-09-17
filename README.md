@@ -208,4 +208,17 @@ public class Demo4 : MonoBehaviour
 
   ```
 
+  ## Demo 4
+
+* Material
+* Standart Shader
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo5.png"></td>
+
+  </tr>
+ </table>
+
 
