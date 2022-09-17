@@ -3,7 +3,7 @@
 
 # Lesson 2
 
-Developing Mobile Game lesson for Ankara university - Week 1
+Developing Mobile Game lesson for Ankara university - Week 2
 
 ## Demo 1 
 
@@ -18,9 +18,40 @@ Developing Mobile Game lesson for Ankara university - Week 1
   </tr>
  </table>
 
+ ```csharp
+
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    private const float velocity = 700f;
+
+    private void FixedUpdate()
+    {
+        transform.position += new Vector3(0f, 0, 0.001f) * velocity;
+    }
+}
+
+  ```
+
+
+
+  ## Demo 2
+
+* PlayerPrefs
+* PlayerPrefs editor
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo2.png"></td>
+
+  </tr>
+ </table>
+
    ```csharp
 
-public class Demo1 : MonoBehaviour
+public class Demo2 : MonoBehaviour
 {
 
     private TextMeshProUGUI txt_Variable;
@@ -46,6 +77,106 @@ public class Demo1 : MonoBehaviour
     }
 
 }
+
+  ```
+
+## Demo 3
+
+* DontDestroyOnLoad
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo3.png"></td>
+
+  <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo3_2.png">
+    </td>
+
+  </tr>
+ </table>
+
+ ```csharp
+
+public class Demo3_First : MonoBehaviour
+{
+
+    private Button btn_GoToScene2;
+
+    private void Awake()
+    {
+        btn_GoToScene2 = GameObject.Find("Btn_GoToScene2").GetComponent<Button>();
+
+        btn_GoToScene2.onClick.AddListener(delegate
+        {
+            SceneManager.LoadScene("Demo3_Second");
+        });
+
+    }
+}
+
+public class Demo3_Second : MonoBehaviour
+{
+    private Button btn_GoToScene1;
+
+    private void Awake()
+    {
+        btn_GoToScene1 = GameObject.Find("Btn_GoToScene1").GetComponent<Button>();
+        btn_GoToScene1.onClick.AddListener(GoToScene1);
+    }
+
+    private void GoToScene1()
+    {
+        SceneManager.LoadScene("Demo3_First");
+    }
+}
+
+
+public class Demo3Manager : MonoBehaviour
+{
+
+    #region Singleton
+
+    public static Demo3Manager Instance { get; private set; }
+
+    private void Singleton()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+    #endregion
+
+    private void Awake()
+    {
+        Debug.Log("Awake");
+
+        Singleton();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(DebugLogIEnumerator());
+    }
+
+    IEnumerator DebugLogIEnumerator()
+    {
+        var yieldReturn = new WaitForSeconds(0.3f);
+
+        while (true)
+        {
+            yield return yieldReturn;
+            Debug.Log("Demo3Manager");
+        }
+    }
+
+}
+
 
   ```
 
