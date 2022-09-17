@@ -6,7 +6,7 @@
 Developing Mobile Game lesson for Ankara university - Week 2
 
 At the beginning of the lesson , "Package Manager" will be mentioned.
-Then we will import Dotween and CarttonFX unitypackages from asset store.
+Then we will import Dotween and CartoonFX unitypackages from asset store.
 
 ## Demo 1 
 
@@ -208,7 +208,7 @@ public class Demo4 : MonoBehaviour
 
   ```
 
-  ## Demo 4
+  ## Demo 5
 
 * Material
 * Standart Shader
@@ -222,3 +222,59 @@ public class Demo4 : MonoBehaviour
  </table>
 
 
+
+  ## Demo 6
+
+* Material
+* Standart Shader
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo6.png"></td>
+
+  </tr>
+ </table>
+
+
+
+  ## Demo 7
+
+* Dotween
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo7.png"></td>
+
+  </tr>
+ </table>
+
+ ```csharp
+
+public class Demo7_Object1 : MonoBehaviour
+{
+    private void Start()
+    {
+        Tween tween =
+         transform.DOMoveX(2f, 2f)
+        .SetRelative(false) // move to relative position
+        .SetEase(Ease.OutQuad)
+        .SetDelay(5f)
+        .SetSpeedBased(false) // zaman yerine hiz
+        .SetId("PlayerMove")
+        .SetLoops(5, LoopType.Yoyo);
+
+        tween.onComplete = delegate { Debug.Log("onComplete"); };
+        tween.onStepComplete = delegate { Debug.Log("onStepComplete"); };
+        tween.onKill = delegate { Debug.Log("onKill"); };
+
+        tween.Play();
+
+        transform.DORotate(Vector3.up * 360, 2, RotateMode.FastBeyond360)
+            .SetLoops(5, LoopType.Yoyo)
+            .SetEase(Ease.Linear);
+    }
+}
+
+  ```
