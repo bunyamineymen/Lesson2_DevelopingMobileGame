@@ -179,6 +179,32 @@ public class Demo3Manager : MonoBehaviour
 
 }
 
+  ```
+
+  ## Demo 4
+
+* Animator
+* Animation Clip - Loop Time
+* Animation Event
+* Animation Speed
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo4.png"></td>
+
+  </tr>
+ </table>
+
+ ```csharp
+
+public class Demo4 : MonoBehaviour
+{
+    public void Trigger_AnimationEvent()
+    {
+        Debug.Log("I am at the ground...");
+    }
+}
 
   ```
 
