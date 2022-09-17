@@ -7,8 +7,9 @@ Developing Mobile Game lesson for Ankara university - Week 2
 
 ## Demo 1 
 
-* PlayerPrefs
-* PlayerPrefs editor
+* Scene Works
+* Motion
+* FixedUpdate
 
 <table>
 
