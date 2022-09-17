@@ -5,6 +5,9 @@
 
 Developing Mobile Game lesson for Ankara university - Week 2
 
+At the beginning of the lesson , "Package Manager" will be mentioned.
+Then we will import Dotween and CarttonFX unitypackages from asset store.
+
 ## Demo 1 
 
 * Scene Works
@@ -34,8 +37,6 @@ public class Player : MonoBehaviour
 }
 
   ```
-
-
 
   ## Demo 2
 
