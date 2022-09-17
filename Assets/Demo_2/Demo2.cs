@@ -3,7 +3,7 @@ using TMPro;
 
 using UnityEngine;
 
-public class Demo1 : MonoBehaviour
+public class Demo2 : MonoBehaviour
 {
 
     private TextMeshProUGUI txt_Variable;
