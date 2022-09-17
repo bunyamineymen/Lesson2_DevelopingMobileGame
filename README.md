@@ -283,7 +283,7 @@ public class Demo7_Object1 : MonoBehaviour
 
   ## Demo 8
 
-* Dotween
+* Time class
 
 <table>
 
@@ -330,3 +330,18 @@ public class Demo8 : MonoBehaviour
 }
 
   ```
+
+
+
+
+  ## Demo 9
+
+* Camera - Viewport Rect 
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo9.png"></td>
+
+  </tr>
+ </table>
