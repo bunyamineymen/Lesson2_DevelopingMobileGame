@@ -29,7 +29,5 @@ public class Demo7_Object1 : MonoBehaviour
             .SetLoops(5, LoopType.Yoyo)
             .SetEase(Ease.Linear);
 
-
-
     }
 }
