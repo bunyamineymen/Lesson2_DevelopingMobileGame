@@ -498,3 +498,54 @@ public class Rotator : MonoBehaviour {
 }
 
   ```
+
+  ## Demo 12
+
+* Run Particle Effect
+* Instantiate command
+* Rigidbody.AddForce command
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo12.png"></td>
+
+  </tr>
+ </table>
+
+```csharp
+
+public class Demo12 : MonoBehaviour
+{
+
+    public GunBehaviour GunBehaviour;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            GunBehaviour.Shoot();
+        }
+    }
+}
+
+```
+
+```csharp
+
+public class GunBehaviour : MonoBehaviour
+{
+    public GameObject Bullet;
+    public Transform BulletReference;
+
+    public const float velocity = 5000;
+
+    public void Shoot()
+    {
+        var bullet = Instantiate(Bullet, BulletReference.position, Quaternion.identity);
+        var rgb = bullet.GetComponent<Rigidbody>();
+        rgb.AddForce(BulletReference.forward * velocity, ForceMode.Force);
+    }
+}
+
+```
