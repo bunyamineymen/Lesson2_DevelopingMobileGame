@@ -345,3 +345,156 @@ public class Demo8 : MonoBehaviour
 
   </tr>
  </table>
+
+
+
+
+
+ ## Demo 10
+
+* Scriptable Objects
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo10.png"></td>
+
+  </tr>
+ </table>
+
+ ```csharp
+
+[CreateAssetMenu(menuName = "Scriptable Objects/Demo10", fileName = "Demo10", order = 1001)]
+public class Demo10 : ScriptableObject
+{
+    public float period;
+}
+
+
+public class Demo10Manager : MonoBehaviour
+{
+    public Demo10 demo10;
+
+    private void Start()
+    {
+        StartCoroutine(DebugLogIEnumerator());
+    }
+
+    IEnumerator DebugLogIEnumerator()
+    {
+        var yieldReturn = new WaitForSeconds(demo10.period);
+
+        while (true)
+        {
+            yield return yieldReturn;
+
+            Debug.Log("Log");
+        }
+
+    }
+}
+
+```
+
+ ## Demo 11
+
+* Keyboard Input
+* Rigidbody
+* Collider
+* OnTriggerEnter
+* Rigidbody.AddForce command
+
+<table>
+
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bunyamineymen/Lesson2_DevelopingMobileGame/main/Assets/_Resources/demo11.png"></td>
+
+  </tr>
+ </table>
+
+ ```csharp
+
+public class Playercontroller : MonoBehaviour {
+
+	public float speed; 
+	public Text countText;
+	public Text winText; 
+	private Rigidbody rb; 
+	private int count; 
+
+	void Start ()
+	{
+		rb = GetComponent<Rigidbody>();
+		count = 0; 
+		SetCountText ();
+		winText.text = ""; 
+	}
+
+	void FixedUpdate () 
+	{
+		float moveHorizontal = Input.GetAxis ("Horizontal");
+		float moveVertical = Input.GetAxis ("Vertical");
+
+		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+
+		rb.AddForce (movement * speed); 
+
+	}
+
+	void OnTriggerEnter(Collider other) 
+	{
+		if (other.gameObject.CompareTag("Pick Up")) 
+		{
+			other.gameObject.SetActive (false);
+			count = count + 1;
+			SetCountText ();
+		}
+	}
+
+	void SetCountText ()
+	{
+		countText.text = "Count: " + count.ToString (); 
+		if ( count >= 12) 
+		{
+			winText.text = "You Win!"; 
+		}
+
+	}
+
+}
+
+  ```
+
+  ```csharp
+
+public class CameraController : MonoBehaviour {
+
+	public GameObject player; 
+
+	private Vector3 offset; 
+
+	// Use this for initialization
+	void Start () {
+		offset = transform.position - player.transform.position; 
+	}
+	
+	// Update is called once per frame
+	void LateUpdate () {
+		transform.position = player.transform.position + offset; 
+	}
+}
+
+```
+
+```csharp
+
+public class Rotator : MonoBehaviour {
+
+	// Update is called once per frame
+	void Update () 
+	{
+		transform.Rotate (new Vector3 (15, 30, 45) * Time.deltaTime);
+	}
+}
+
+  ```
